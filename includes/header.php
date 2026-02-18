@@ -1,9 +1,29 @@
+<?php include __DIR__ . '/config.php'; ?>
+
+<?php
+// Choisit dynamiquement le fichier logo (logo.png, logo.jpg, sinon babi.jpg)
+$imagesPath = __DIR__ . '/../assets/images';
+$logo_src = '';
+if (is_file($imagesPath . '/logo.png')) {
+    $logo_src = $base_url . '/assets/images/logo.png';
+} elseif (is_file($imagesPath . '/logo.jpg')) {
+    $logo_src = $base_url . '/assets/images/logo.jpg';
+} elseif (is_file($imagesPath . '/logo-babi-location.png')) {
+    $logo_src = $base_url . '/assets/images/logo-babi-location.png';
+} elseif (is_file($imagesPath . '/babi.jpg')) {
+    $logo_src = $base_url . '/assets/images/babi.jpg';
+}
+
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
 
         <!-- Logo -->
         <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
-            <img src="assets/images/logo.png" height="40" class="me-2">
+            <?php if ($logo_src !== ''): ?>
+                <img src="<?php echo $logo_src; ?>" height="40" class="me-2" alt="Babi logo">
+            <?php endif; ?>
             <span class="text-success">Babi</span>
             <span class="text-warning">Location</span>
         </a>
@@ -51,7 +71,7 @@
 </nav>
 
 <section class="hero-section text-white d-flex align-items-center"
-         style="background: url('assets/images/abidjan.jpg') center/cover no-repeat;
+      style="background: url('<?php echo $base_url; ?>/assets/images/babi.jpg') center/cover no-repeat;
                 height: 90vh; margin-top: 75px;">
 
     <div class="container text-center animate__animated animate__fadeIn">
