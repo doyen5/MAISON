@@ -1,0 +1,37 @@
+.hero-section {
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.nav-link:hover {
+    color: #f97316 !important;
+}
+
+.btn-warning {
+    background-color: #f97316;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #ea580c;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
